@@ -9,6 +9,7 @@
     :license: BSD, see LICENSE for details.
 """
 
+from __future__ import absolute_import
 __license__ = """
 
 Copyright (c) 2011 by the contributors (see AUTHORS.rst file).
@@ -153,7 +154,7 @@ def checkCombinationOfTerms(terms):
         found = True
 
     if 0 and not found:
-        f2 = file('temp.txt', 'a')
+        f2 = open('temp.txt', 'a')
         f2.write('%s\n' % terms)
         f2.close()
     return rowtype, rowid, found
