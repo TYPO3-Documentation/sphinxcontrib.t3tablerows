@@ -10,6 +10,8 @@
 """
 
 from __future__ import absolute_import
+
+
 __license__ = """
 
 Copyright (c) 2011 by the contributors (see AUTHORS.rst file).
@@ -39,6 +41,8 @@ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 """
+
+__version__ = '0.3.0';
 
 from docutils import nodes
 
@@ -266,9 +270,14 @@ def doctreeRead(app, doctree, docname=None):
                     else:
                         child.replace_self([transformed])
 
+
 def setup(app):
     app.connect('doctree-read', doctreeRead)
-
+    return {
+        'parallel_read_safe': True,
+        'parallel_write_safe': True,
+        'version': __version__,
+    }
 
 
 ## <bullet_list bullet="-" classes="simple">
